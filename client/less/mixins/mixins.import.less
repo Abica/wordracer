@@ -1,0 +1,11 @@
+.diagonal-pinstripe(@color, @bgColor: @transparent) {
+  background:
+    repeating-linear-gradient(
+      150deg,
+      @bgColor,
+      @bgColor 10px,
+      @color 10px,
+      @color 20px
+    );
+  background-size: 40px 46px;
+}

@@ -23,6 +23,9 @@
   [ ] ability to change race avatar (car by default)
 [ ] ui
   [ ] styling
+    [x] make sequence form full screen
+    [ ] parts of the phrase you've typed should be green
+    [ ] mistakes should be red and blocking
   [ ] race ui
     [ ] join button when viewing
     [ ] ready button when joined

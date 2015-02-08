@@ -1,0 +1,56 @@
+#race-panel {
+  #race-participants {
+    padding: 0px;
+  }
+  .race-participant {
+    list-style-type: none;
+    position: relative;
+    img {
+      position: relative;
+      z-index: 1;
+    }
+    &:first-child {
+      img {
+        left: 40px;
+      }
+    }
+    &:last-child {
+      img {
+        left: 300px;
+      }
+    }
+    &:before {
+      z-index: 0;
+      content: '';
+      border: 1px solid @blue;
+      position: absolute;
+      right: 0px;
+      left: 0px;
+      top: 80px;
+    }
+  }
+
+  .goal {
+    text-align: center;
+    font-size: 65px;
+    border: 1px solid @gray;
+    padding: 10px;
+  }
+
+  #sequence-form {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid @blue;
+    #message {
+      width: 80%;
+      padding: 10px;
+      font-size: 60px;
+    }
+    button {
+      margin-left: 20px;
+      padding: 11px;
+      font-size: 60px;
+      color: @gray;
+    }
+  }
+}

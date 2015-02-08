@@ -4,8 +4,9 @@ template(name="race")
       each participants
         +race_participant
 
+    aside.goal= race.phrase
+
     +if isParticipating
-      aside.goal= race.phrase
       form#sequence-form
         input#message(type="text", name="message", placeholder="Type...")
         button send
@@ -17,4 +18,5 @@ template(name="race_participant")
     +else
       span.name The Mysterious Racer X
 
-
+    aside.track
+      img(src="/images/car.png")
