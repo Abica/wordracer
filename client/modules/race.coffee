@@ -37,4 +37,10 @@ Template.race_participant.helpers
     Racer.racerKey is racerKey
 
 Template.race_participant.rendered = ->
+  participant = RaceParticipants.findOne
+    racerKey: @data.racerKey
+
+  $img = @$("img")
+  $img.css
+    left: "calc(#{participant.progress}% - #{$img.width()}px)"
 
