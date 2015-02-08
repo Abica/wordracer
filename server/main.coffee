@@ -7,6 +7,7 @@ Meteor.methods
       racerKey = Meteor.uuid()
 
       racer = Racers.insert
+        name: "Racer #{Racers.find().count() + 1}"
         racerKey: racerKey
 
      racer.racerKey || racerKey

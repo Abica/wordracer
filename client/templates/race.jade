@@ -1,1 +1,19 @@
 template(name="race")
+  section#race-panel
+    ul#race-participants
+      each participants
+        +race_participant
+
+    +if isParticipating
+      form#sequence-form
+        input#message(type="text", name="message", placeholder="Type...")
+        button send
+
+template(name="race_participant")
+  li.race-participant
+    +if name
+      span.name #{name}
+    +else
+      span.name The Mysterious Racer X
+
+
