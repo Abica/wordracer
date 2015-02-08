@@ -5,7 +5,13 @@ Meteor.methods
       phrase: "abcdefghijklmnopqrstuvwxyz"
       state: "waiting_for_racers"
 
-  racerStep: (raceKey, racePacket) ->
+  joinRace: (joinRacePacket) ->
+    check(joinRacePacket, ValidJoinRacePacket)
+
+  changeRacerStatus: (racerStatusPacket) ->
+    check(racerStatusPacket, ValidChangeRacerStatusPacket)
+
+  racerStep: (racePacket) ->
     check(racePacket, ValidRacePacket)
 
     Sequences.create
