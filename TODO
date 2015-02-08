@@ -2,6 +2,9 @@
   [ ] players can vote to eject a player before match
   [ ] private races
   [ ] public races
+[ ] joining races
+  [ ] cap number of racers
+  [ ] too many racers and new users become viewers
 [ ] races
   [ ] car moves when user successfully types
   [ ] support for watching live races

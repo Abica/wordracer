@@ -1,21 +1,21 @@
 Router.map ->
-  @route '/race/:_id',
+  @route '/race/:_key',
     action: ->
-      params = @params
-      raceId = params._id
-      @state.set 'raceId', raceId
+      @state.set 'raceKey', @params._key
 
     waitOn: ->
-      [Meteor.subscribe('racers', @params._id),
-       Meteor.subscribe('sequences', @params._id)]
+      [Meteor.subscribe('racers', @params._key),
+       Meteor.subscribe('sequences', @params._key)]
 
     onBeforeAction: ->
-      check(@params._id, RaceID)
+      check(@params._id, RaceKey)
       @next()
 
   @route '/',
     action: ->
-      @redirect "/race/#{Meteor.uuid()}"
+      key = Meteor.uuid()
+      Meteor.call 'createRace', key
+      @redirect "/race/#{key}"
 
     onBeforeAction: ->
       if !Meteor.userId()
