@@ -28,18 +28,12 @@ Template.race.rendered = ->
 
 Template.race.events
   'keypress :text': (e) ->
-    character = String.fromCharCode(e.which || e.keyCode)
-    phrase = Utils.currentRace().phrase
-    text = $('#message').val()
-    re = new RegExp("^(#{text})(#{character})(.*?)")
-    isValid = re.test(phrase)
+    charCode = e.which || e.keyCode
+    Utils.validateSequence(charCode)
 
-    $goal = $('.goal')
-    $goal.html $goal.text().replace re, (match, $1, $2) ->
-      "<span class='good'>#{match}</span>"
-
-  'keydown :text': (e) ->
-    console.log 'sdsds', e.which
+  'change :text': (e) ->
+    charCode = e.which || e.keyCode
+    Utils.validateSequence(charCode)
 
 Template.race_participant.helpers
   isCurrentRacer: (racerKey) ->
