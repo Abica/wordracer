@@ -1,5 +1,5 @@
 Template.race.helpers
-  inRoom: ->
+  inRace: ->
     Session.get('raceKey')
 
 Template.race.rendered = ->
@@ -8,5 +8,5 @@ Template.race.rendered = ->
 
   Meteor.subscribe "race", raceKey
   Meteor.subscribe "racers", raceKey
+  Meteor.subscribe "raceParticipants", raceKey
   Meteor.subscribe "sequences", raceKey
-
