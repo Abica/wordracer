@@ -1,4 +1,7 @@
 #race-panel {
+  background: @black;
+  padding: 25px;
+  border: 5px solid @blue;
   #race-participants {
     padding: 0px;
   }
@@ -8,15 +11,16 @@
     img {
       position: relative;
       z-index: 1;
+      width: 100px;
     }
     &:first-child {
       img {
-        left: 40px;
+        left: 0px;
       }
     }
     &:last-child {
       img {
-        left: 300px;
+        left: 0px;
       }
     }
     &:before {
@@ -26,7 +30,7 @@
       position: absolute;
       right: 0px;
       left: 0px;
-      top: 80px;
+      top: 45px;
     }
   }
 
@@ -40,17 +44,13 @@
   #sequence-form {
     margin-top: 25px;
     padding-top: 15px;
-    border-top: 1px solid @blue;
     #message {
-      width: 80%;
+      border: 1px solid @blue;
+      width: calc(~"100%" - 25px);
       padding: 10px;
       font-size: 60px;
-    }
-    button {
-      margin-left: 20px;
-      padding: 11px;
-      font-size: 60px;
-      color: @gray;
+      background: @black;
+      color: @white;
     }
   }
 }
