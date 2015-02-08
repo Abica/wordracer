@@ -23,6 +23,7 @@ Template.race.rendered = ->
   Meteor.subscribe 'raceParticipants', raceKey, ->
     participantsCursor = RaceParticipants.find()
     participantsCursor.observe
+      added: (participant) ->
       changed: (participant) ->
 
   Meteor.subscribe 'sequences', raceKey
@@ -54,11 +55,16 @@ Template.race.events
 
 Template.race_participant.helpers
   isCurrentRacer: (racerKey) ->
-    Racer.racerKey is racerKey
+    Utils.isRacer racerKey
 
 Template.race_participant.rendered = ->
-  participant = Utils.currentParticipant()
+  @data.progress ||= 0
   $img = @$('img')
+
+  left = @data.progress
+  if left >= 100
+    left = "calc(#{@data.progress}% - #{$img.width()}px)"
+
   $img.css
-    left: "calc(#{participant.progress}% - #{$img.width()}px)"
+    left: left
 
