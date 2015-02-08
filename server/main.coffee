@@ -29,6 +29,10 @@ Meteor.methods
 
 
 Meteor.startup ->
+  Meteor.publish "race", (raceKey) ->
+    Races.find
+      raceKey: raceKey
+
   Meteor.publish "racers", (raceKey) ->
     Racers.find
       raceKey: raceKey
