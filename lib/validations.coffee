@@ -17,7 +17,7 @@
 
   id.length == 36
 
-@ValidRacerID = Match.Where (id) ->
+@ValidRacerKey = Match.Where (id) ->
   check(id, String)
 
   true
@@ -29,15 +29,14 @@
 
 @ValidJoinRacePacket = Match.Where (packet) ->
   check(packet.raceKey, ValidRaceKey)
-  check(packet.racerId, ValidRacerID)
-  check(packet.status, ValidRacerStatus)
+  check(packet.racerKey, ValidRacerKey)
   check(packet.raceKey, ValidRace)
 
   true
 
 @ValidChangeRacerStatusPacket = Match.Where (packet) ->
   check(packet, ValidJoinRacePacket)
-  check(packet.raceKey, ValidRacerStatus)
+  check(packet.status, ValidRacerStatus)
 
   true
 
@@ -47,4 +46,4 @@
   check(racePacket.timecode, ValidTimecode)
   check(packet.raceKey, ValidRace)
 
-  Racers.findOne(_id: packet.racerId)
+  Racers.findOne(_id: packet.racerKey)

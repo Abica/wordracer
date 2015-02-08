@@ -1,15 +1,15 @@
 Meteor.methods
-  loadRacer: (racerId)  ->
+  loadRacer: (racerKey)  ->
     racer = Racers.findOne
-      racerId: racerId
+      racerKey: racerKey
 
     unless racer
-      racerId = Meteor.uuid()
+      racerKey = Meteor.uuid()
 
       racer = Racers.insert
-        racerId: racerId
+        racerKey: racerKey
 
-     racer.racerId || racerId
+     racer.racerKey || racerKey
 
   createRace: (raceKey)  ->
     Races.insert
@@ -21,7 +21,7 @@ Meteor.methods
     check(joinRacePacket, ValidJoinRacePacket)
 
     RaceParticipants.insert
-      racerId: joinRacePacket.racerId
+      racerKey: joinRacePacket.racerKey
       raceKey: joinRacePacket.raceKey
 
   changeRacerStatus: (racerStatusPacket) ->
@@ -38,7 +38,7 @@ Meteor.methods
     check(racePacket, ValidRacePacket)
 
     Sequences.insert
-      racerId: racePacket.racerId
+      racerKey: racePacket.racerKey
       raceKey: racePacket.raceKey
       keycode: racePacket.keycode
       timecode: racePacket.timecode
@@ -51,11 +51,12 @@ Meteor.startup ->
 
   Meteor.publish "racers", (raceKey) ->
     participants = RaceParticipants.find(raceKey: raceKey)
-    racerIds = participants.map (p) -> p.racerId
+    racerKeys = participants.map (participant) ->
+      participant.racerKey
 
     Racers.find
-      _id:
-        $in: racerIds
+      racerKey:
+        $in: racerKeys
 
   Meteor.publish "racerParticipants", (raceKey) ->
     RaceParticipants.find
