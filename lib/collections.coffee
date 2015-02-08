@@ -6,12 +6,13 @@
 @States = new Meteor.Collection("states")
 @Sequences = new Meteor.Collection("sequences")
 
-RaceStatuses =
+@RaceStatuses =
   ['waiting_for_racers',
    'started',
+   'abandoned',
    'finished']
 
-RacerStatuses =
+@RacerStatuses =
   ['pending',
    'ready',
    'started',

@@ -31,8 +31,8 @@ Meteor.methods
 Meteor.startup ->
   Meteor.publish "racers", (raceKey) ->
     Racers.find
-      raceId: raceKey
+      raceKey: raceKey
 
   Meteor.publish "sequences", (raceKey) ->
     Sequences.find
-      raceId: raceKey
+      raceKey: raceKey
