@@ -46,4 +46,4 @@
   check(racePacket.timecode, ValidTimecode)
   check(packet.raceKey, ValidRace)
 
-  Racers.findOne(_id: packet.racerKey)
+  Racers.findOne(racerKey: packet.racerKey)
