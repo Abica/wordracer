@@ -7,8 +7,12 @@ Meteor.methods
       racerKey = Meteor.uuid()
 
       racer = Racers.insert
-        name: "Racer #{Racers.find().count() + 1}"
         racerKey: racerKey
+        name: "Racer #{Racers.find().count() + 1}"
+        avatar: 'car'
+        mistakes: 0
+        progress: 0
+        state: 'pending'
 
      racer.racerKey || racerKey
 
@@ -17,6 +21,8 @@ Meteor.methods
       raceKey: raceKey
       phrase: "abcdefghijklmnopqrstuvwxyz"
       state: "waiting_for_racers"
+      time: 0
+      maxTime: 3 * 60
 
   joinRace: (joinRacePacket) ->
     check(joinRacePacket, ValidJoinRacePacket)

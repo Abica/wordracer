@@ -11,6 +11,7 @@
   [ ] multiplayer support
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
+  [ ] track race timer
 [ ] race modes
   [ ] alphabetical
   [ ] numeric
@@ -31,6 +32,8 @@
     [ ] ready button when joined
     [ ] leave button when joined
     [x] display target phrase
+    [ ] words per minute display
+    [ ] timer display
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu

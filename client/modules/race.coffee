@@ -24,3 +24,7 @@ Template.race.rendered = ->
   Meteor.subscribe 'racers', raceKey
   Meteor.subscribe 'raceParticipants', raceKey
   Meteor.subscribe 'sequences', raceKey
+
+Template.race_participant.helpers
+  isCurrentRacer: (racerKey) ->
+    Racer.racerKey is racerKey

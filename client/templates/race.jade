@@ -13,10 +13,16 @@ template(name="race")
 
 template(name="race_participant")
   li.race-participant
-    +if name
-      span.name #{name}
-    +else
+    if isCurrentRacer racerKey
+      span.name You
+    else if name
+      span.name= name
+    else
       span.name The Mysterious Racer X
 
     aside.track
-      img(src="/images/car.png")
+      if avatar
+        img(src="/images/#{avatar}.png")
+      else
+        img(src="/images/car.png")
+
