@@ -1,0 +1,28 @@
+[ ] race lobbies
+  [ ] players can vote to eject a player before match
+  [ ] private races
+  [ ] public races
+[ ] races
+  [ ] car moves when user successfully types
+  [ ] support for watching live races
+  [ ] multiplayer support
+  [ ] ability to replay races
+  [ ] perhaps different terrain/maps instead of linear path?
+[ ] race modes
+  [ ] alphabetical
+  [ ] numeric
+  [ ] math
+  [ ] paragraphs
+  [ ] levels/difficulty?
+[ ] racers
+  [ ] anonymous racers
+  [ ] ability to change name
+  [ ] ability to change race avatar (car by default)
+[ ] styling
+[ ] car customization options
+  [ ] wheels turn
+[ ] landing menu
+  [ ] race
+  [ ] practice
+  [ ] watch race
+  [ ] replay race
