@@ -7,6 +7,17 @@
 @States = new Meteor.Collection("states")
 @Sequences = new Meteor.Collection("sequences")
 
+RaceParticipants.allow
+  update: (userId, participant, fields, params) ->
+    authPacket = params["$set"].extras
+
+    check(authPacket, ValidJoinRacePacket)
+
+    delete params["$set"].extras
+
+    participant.raceKey is authPacket.raceKey &&
+    participant.racerKey is authPacket.racerKey
+
 @RaceStatuses =
   ['waiting_for_racers',
    'started',

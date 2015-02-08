@@ -25,8 +25,8 @@
 [ ] ui
   [ ] styling
     [x] make sequence form full screen
-    [ ] parts of the phrase you've typed should be green
-    [ ] mistakes should be red and blocking
+    [x] correct parts of the phrase you've typed should be green
+    [x] mistakes should be red and blocking
   [ ] race ui
     [ ] join button when viewing
     [ ] ready button when joined
