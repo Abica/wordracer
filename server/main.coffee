@@ -1,6 +1,6 @@
 Meteor.methods
   createRace: (raceKey)  ->
-    Races.create
+    Races.insert
       raceKey: raceKey
       phrase: "abcdefghijklmnopqrstuvwxyz"
       state: "waiting_for_racers"
@@ -14,7 +14,7 @@ Meteor.methods
   racerStep: (racePacket) ->
     check(racePacket, ValidRacePacket)
 
-    Sequences.create
+    Sequences.insert
       racerId: racePacket.racerId
       raceKey: racePacket.raceKey
       keycode: racePacket.keycode
