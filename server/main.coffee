@@ -49,6 +49,10 @@ Meteor.startup ->
     Races.find
       raceKey: raceKey
 
+  Meteor.publish "racer", (racerKey) ->
+    Racers.find
+      racerKey: racerKey
+
   Meteor.publish "racers", (raceKey) ->
     participants = RaceParticipants.find(raceKey: raceKey)
     racerKeys = participants.map (participant) ->
@@ -58,7 +62,7 @@ Meteor.startup ->
       racerKey:
         $in: racerKeys
 
-  Meteor.publish "racerParticipants", (raceKey) ->
+  Meteor.publish "raceParticipants", (raceKey) ->
     RaceParticipants.find
       raceKey: raceKey
 

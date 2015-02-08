@@ -7,7 +7,7 @@ Router.map ->
     waitOn: ->
       [Meteor.subscribe('race', @params._key),
        Meteor.subscribe('racers', @params._key),
-       Meteor.subscribe('racerParticipants', @params._key),
+       Meteor.subscribe('raceParticipants', @params._key),
        Meteor.subscribe('sequences', @params._key)]
 
     onBeforeAction: ->
