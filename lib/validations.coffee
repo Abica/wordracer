@@ -41,6 +41,7 @@
 
   true
 
+@ValidRacePacket = Match.Where (packet) ->
   check(racePacket.raceKey, ValidRaceKey)
   check(racePacket.keycode, ValidKeycode)
   check(racePacket.timecode, ValidTimecode)
