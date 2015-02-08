@@ -11,6 +11,13 @@ Meteor.methods
   changeRacerStatus: (racerStatusPacket) ->
     check(racerStatusPacket, ValidChangeRacerStatusPacket)
 
+    status = racerStatusPacket.status
+    delete racerStatusPacket.status
+
+    Racer.update raceStatusPacket,
+      $set:
+        status: status
+
   racerStep: (racePacket) ->
     check(racePacket, ValidRacePacket)
 

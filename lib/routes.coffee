@@ -8,7 +8,7 @@ Router.map ->
        Meteor.subscribe('sequences', @params._key)]
 
     onBeforeAction: ->
-      check(@params._id, RaceKey)
+      check(@params._id, ValidRaceKey)
       @next()
 
   @route '/',

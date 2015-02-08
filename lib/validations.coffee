@@ -1,33 +1,33 @@
-ValidRace = Match.Where (key) ->
+@ValidRace = Match.Where (key) ->
   Races.findOne(raceKey: key)
 
-ValidKeycode = Match.Where (keycode) ->
+@ValidKeycode = Match.Where (keycode) ->
   check(keycode, Integer)
 
   keycode > 0
 
 # TODO(nick): make more robust; possibly check code is within known race bounds
-ValidTimecode = Match.Where (timecode) ->
+@ValidTimecode = Match.Where (timecode) ->
   check(timecode, Integer)
 
   timecode > 0
 
-ValidRaceKey = Match.Where (id) ->
+@ValidRaceKey = Match.Where (id) ->
   check(id, String)
 
   id.length == 36
 
-ValidRacerID = Match.Where (id) ->
+@ValidRacerID = Match.Where (id) ->
   check(id, String)
 
   true
 
-ValidRacerStatus = Match.Where (status) ->
+@ValidRacerStatus = Match.Where (status) ->
   check(status, String)
 
   status in RacerStatuses
 
-ValidJoinRacePacket = Match.Where (packet) ->
+@ValidJoinRacePacket = Match.Where (packet) ->
   check(packet.raceKey, ValidRaceKey)
   check(packet.racerId, ValidRacerID)
   check(packet.status, ValidRacerStatus)
@@ -35,13 +35,12 @@ ValidJoinRacePacket = Match.Where (packet) ->
 
   true
 
-ValidChangeRacerStatusPacket = Match.Where (packet) ->
+@ValidChangeRacerStatusPacket = Match.Where (packet) ->
   check(packet, ValidJoinRacePacket)
   check(packet.raceKey, ValidRacerStatus)
 
   true
 
-ValidRacePacket = Match.Where (packet) ->
   check(racePacket.raceKey, ValidRaceKey)
   check(racePacket.keycode, ValidKeycode)
   check(racePacket.timecode, ValidTimecode)
