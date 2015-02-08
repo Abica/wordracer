@@ -6,9 +6,7 @@ Template.race.helpers
     Session.get('raceKey')
 
   isParticipating: ->
-    key = Session.get('racerKey')
-    !!RaceParticipants.findOne
-      racerKey: key
+    Utils.isParticipating()
 
   participants: ->
     racerKeys = _.map RaceParticipants.find().fetch(), (r) ->
@@ -25,6 +23,18 @@ Template.race.rendered = ->
   Meteor.subscribe 'raceParticipants', raceKey
   Meteor.subscribe 'sequences', raceKey
 
+  if Utils.isParticipating()
+    $("#message").focus()
+
+Template.race.events
+  'keypress :text': (e) ->
+    e.preventDefault()
+    character = e.which || e.keyCode
+    console.log String.fromCharCode(character)
+
 Template.race_participant.helpers
   isCurrentRacer: (racerKey) ->
     Racer.racerKey is racerKey
+
+Template.race_participant.rendered = ->
+
