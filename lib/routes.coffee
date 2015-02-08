@@ -2,6 +2,7 @@ Router.map ->
   @route '/race/:_key',
     action: ->
       @state.set 'raceKey', @params._key
+      @render 'race'
 
     waitOn: ->
       [Meteor.subscribe('racers', @params._key),
