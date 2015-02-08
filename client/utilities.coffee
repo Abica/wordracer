@@ -3,6 +3,12 @@
     Session.set name, Session.get(name) || defaultValue
 
   isParticipating: ->
+    !!@currentParticipant()
+
+  currentRace: ->
+    @race ||= Races.findOne()
+
+  currentParticipant: ->
     key = Session.get('racerKey')
-    !!RaceParticipants.findOne
+    @participant ||= RaceParticipants.findOne
       racerKey: key

@@ -1,6 +1,6 @@
 Template.race.helpers
   race: ->
-    Races.findOne()
+    Utils.currentRace()
 
   inRace: ->
     Session.get('raceKey')
@@ -24,13 +24,22 @@ Template.race.rendered = ->
   Meteor.subscribe 'sequences', raceKey
 
   if Utils.isParticipating()
-    $("#message").focus()
+    $('#message').focus()
 
 Template.race.events
   'keypress :text': (e) ->
-    e.preventDefault()
-    character = e.which || e.keyCode
-    console.log String.fromCharCode(character)
+    character = String.fromCharCode(e.which || e.keyCode)
+    phrase = Utils.currentRace().phrase
+    text = $('#message').val()
+    re = new RegExp("^(#{text})(#{character})(.*?)")
+    isValid = re.test(phrase)
+
+    $goal = $('.goal')
+    $goal.html $goal.text().replace re, (match, $1, $2) ->
+      "<span class='good'>#{match}</span>"
+
+  'keydown :text': (e) ->
+    console.log 'sdsds', e.which
 
 Template.race_participant.helpers
   isCurrentRacer: (racerKey) ->
@@ -40,7 +49,7 @@ Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne
     racerKey: @data.racerKey
 
-  $img = @$("img")
+  $img = @$('img')
   $img.css
     left: "calc(#{participant.progress}% - #{$img.width()}px)"
 
