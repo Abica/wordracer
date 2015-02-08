@@ -1,4 +1,7 @@
 Template.race.helpers
+  race: ->
+    Races.findOne()
+
   inRace: ->
     Session.get('raceKey')
 

@@ -1,7 +1,7 @@
 [ ] race lobbies
   [ ] players can vote to eject a player before match
   [ ] private races
-  [ ] public races
+  [x] public races
 [ ] joining races
   [ ] cap number of racers
   [ ] too many racers and new users become viewers
@@ -18,10 +18,16 @@
   [ ] paragraphs
   [ ] levels/difficulty?
 [ ] racers
-  [ ] anonymous racers
+  [x] anonymous racers
   [ ] ability to change name
   [ ] ability to change race avatar (car by default)
-[ ] styling
+[ ] ui
+  [ ] styling
+  [ ] race ui
+    [ ] join button when viewing
+    [ ] ready button when joined
+    [ ] leave button when joined
+    [x] display target phrase
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu

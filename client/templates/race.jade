@@ -5,6 +5,7 @@ template(name="race")
         +race_participant
 
     +if isParticipating
+      aside.goal= race.phrase
       form#sequence-form
         input#message(type="text", name="message", placeholder="Type...")
         button send
