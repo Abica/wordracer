@@ -60,6 +60,7 @@ Template.race.events
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
 
+
 Template.race_participant.helpers
   isCurrentRacer: (racerKey) ->
     Utils.isRacer racerKey

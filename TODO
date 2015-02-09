@@ -60,3 +60,5 @@
   [x] below a certain threshold car doesn't move correct distance
   [x] take width of car into account before it drives off of edge (probably stop using calc)
   [x] allowing player to reverse before the first letter
+  [x] there are cases when the delete key will navigate the browser to the previous page..
+      need to capture delete key even when user is not in an active game and prevent default

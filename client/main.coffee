@@ -10,3 +10,7 @@ Meteor.startup ->
     key = Session.get('racerKey')
     @Racer = Racers.findOne(racerKey: key)
 
+$ ->
+  $(document).unbind('keydown').on 'keydown', (e) ->
+    return if $(e.target).is(':text')
+    e.preventDefault()
