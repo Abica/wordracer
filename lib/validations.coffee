@@ -22,10 +22,10 @@
 
   true
 
-@ValidRacerStatus = Match.Where (status) ->
-  check(status, String)
+@ValidRacerState = Match.Where (state) ->
+  check(state, String)
 
-  status in RacerStatuses
+  state in RacerStates
 
 @ValidJoinRacePacket = Match.Where (packet) ->
   check(packet.raceKey, ValidRaceKey)
@@ -34,9 +34,9 @@
 
   true
 
-@ValidChangeRacerStatusPacket = Match.Where (packet) ->
+@ValidChangeRacerStatePacket = Match.Where (packet) ->
   check(packet, ValidJoinRacePacket)
-  check(packet.status, ValidRacerStatus)
+  check(packet.state, ValidRacerState)
 
   true
 

@@ -18,13 +18,13 @@ RaceParticipants.allow
     participant.raceKey is authPacket.raceKey &&
     participant.racerKey is authPacket.racerKey
 
-@RaceStatuses =
+@RaceStates =
   ['waiting_for_racers',
    'started',
    'abandoned',
    'finished']
 
-@RacerStatuses =
+@RacerStates =
   ['pending',
    'ready',
    'started',

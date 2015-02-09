@@ -7,9 +7,15 @@ template(name="race")
 
     aside.goal= race.phrase
 
-    +if isParticipating
+    if isParticipating
+      if isPending
+        button I'm Ready!
+        button Leave Race
+      else
       form#sequence-form
-        input#message(type="text", name="message", placeholder="Type...")
+        input#message(type="text", name="message", placeholder="Type...", disabled=disabled)
+    else
+      button Join Race
 
 template(name="race_participant")
   li.race-participant

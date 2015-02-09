@@ -12,6 +12,7 @@
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
   [ ] track race timer
+  [ ] track initial times
   [ ] verify moves on backend
   [ ] change race and racer game states appropriately
   [ ] restrict certian actions in certain game states

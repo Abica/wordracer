@@ -31,15 +31,15 @@ Meteor.methods
       progress: 0
       state: 'pending'
 
-  changeRacerStatus: (racerStatusPacket) ->
-    check(racerStatusPacket, ValidChangeRacerStatusPacket)
+  changeRacerState: (racerStatePacket) ->
+    check(racerStatePacket, ValidChangeRacerStatePacket)
 
-    status = racerStatusPacket.status
-    delete racerStatusPacket.status
+    state = racerStatePacket.state
+    delete racerStatePacket.state
 
-    RaceParticipants.update raceStatusPacket,
+    RaceParticipants.update raceStatePacket,
       $set:
-        status: status
+        state: state
 
   racerStep: (racePacket) ->
     check(racePacket, ValidRacePacket)

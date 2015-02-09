@@ -8,6 +8,10 @@ Template.race.helpers
   isParticipating: ->
     Utils.isParticipating()
 
+  isPending: ->
+    console.log Utils.currentParticipant().state
+    Utils.currentParticipant().state is 'pending'
+
   participants: ->
     RaceParticipants.find()
 
