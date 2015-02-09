@@ -27,7 +27,7 @@
 
   state in RacerStates
 
-@ValidJoinRacePacket = Match.Where (packet) ->
+@ValidParticipantPointerPacket = Match.Where (packet) ->
   check(packet.raceKey, ValidRaceKey)
   check(packet.racerKey, ValidRacerKey)
   check(packet.raceKey, ValidRace)
@@ -35,7 +35,7 @@
   true
 
 @ValidChangeRacerStatePacket = Match.Where (packet) ->
-  check(packet, ValidJoinRacePacket)
+  check(packet, ValidParticipantPointerPacket)
   check(packet.state, ValidRacerState)
 
   true

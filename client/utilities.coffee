@@ -32,10 +32,20 @@
     racerKey: Session.get('racerKey')
     raceKey: Session.get('raceKey')
 
-  currentParticipant: ->
+  currentParticipant: (reload = false) ->
     key = Session.get('racerKey')
+    @participant = null if reload
     @participant ||= RaceParticipants.findOne
       racerKey: key
+
+  leaveRace: ->
+    Session.set 'lastValid', ''
+    Meteor.call 'leaveRace', @participantPointer()
+    @participant = null
+
+  readyUp: ->
+    Meteor.call 'racerReady', @participantPointer(), ->
+      $('#message').focus()
 
   stepCurrentRacer: ->
     participant = @currentParticipant()

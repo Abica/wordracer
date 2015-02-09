@@ -11,7 +11,7 @@ RaceParticipants.allow
   update: (userId, participant, fields, params) ->
     authPacket = params["$set"].extras
 
-    check(authPacket, ValidJoinRacePacket)
+    check(authPacket, ValidParticipantPointerPacket)
 
     delete params["$set"].extras
 

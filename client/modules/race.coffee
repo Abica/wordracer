@@ -12,7 +12,8 @@ Template.race.helpers
     Utils.isParticipating()
 
   isPending: ->
-    Utils.currentParticipant().state is 'pending'
+    participant = Utils.currentParticipant(true)
+    participant.state is 'pending'
 
   participants: ->
     RaceParticipants.find()
@@ -41,8 +42,10 @@ Template.race.rendered = ->
 
 Template.race.events
   'click .ready-button': (e) ->
+    Utils.readyUp()
 
   'click .leave-button': (e) ->
+    Utils.leaveRace()
 
   'click .join-race-button': (e) ->
     Session.set 'lastValid', ''

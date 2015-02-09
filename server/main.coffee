@@ -21,16 +21,30 @@ Meteor.methods
       time: 0
       maxTime: 3 * 60
 
-  joinRace: (joinRacePacket) ->
-    check(joinRacePacket, ValidJoinRacePacket)
+  joinRace: (participantPointer) ->
+    check(participantPointer, ValidParticipantPointerPacket)
 
     RaceParticipants.insert
-      racerKey: joinRacePacket.racerKey
-      raceKey: joinRacePacket.raceKey
+      racerKey: participantPointer.racerKey
+      raceKey: participantPointer.raceKey
       mistakes: 0
       progress: 0
       carKey: Meteor.uuid()
       state: 'pending'
+
+  # TODO(nick): for now this removes the participant but this should
+  #             really be setting the status to exited..
+  leaveRace: (participantPointer) ->
+    check(participantPointer, ValidParticipantPointerPacket)
+
+    RaceParticipants.remove(participantPointer)
+
+  racerReady: (participantPointer) ->
+    check(participantPointer, ValidParticipantPointerPacket)
+
+    RaceParticipants.update participantPointer,
+      $set:
+        state: 'ready'
 
   changeRacerState: (racerStatePacket) ->
     check(racerStatePacket, ValidChangeRacerStatePacket)
@@ -38,7 +52,7 @@ Meteor.methods
     state = racerStatePacket.state
     delete racerStatePacket.state
 
-    RaceParticipants.update raceStatePacket,
+    RaceParticipants.update racerStatePacket,
       $set:
         state: state
 
