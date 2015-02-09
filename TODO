@@ -6,9 +6,10 @@
   [ ] cap number of racers
   [ ] too many racers and new users become viewers
 [ ] races
-  [ ] car moves when user successfully types
+  [x] car moves when user successfully types
   [ ] support for watching live races
-  [ ] multiplayer support
+  [x] multiplayer support
+  [ ] other racers should move in realtime
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
   [ ] track race timer
@@ -34,9 +35,9 @@
     [x] correct parts of the phrase you've typed should be green
     [x] mistakes should be red and blocking
   [ ] race ui
-    [ ] join button when viewing
-    [ ] ready button when joined
-    [ ] leave button when joined
+    [x] join button when viewing
+    [x] ready button when joined
+    [x] leave button when joined
     [x] display target phrase
     [ ] words per minute display
     [ ] timer display
