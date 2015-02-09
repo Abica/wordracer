@@ -9,7 +9,7 @@
   [x] car moves when user successfully types
   [ ] support for watching live races
   [x] multiplayer support
-  [ ] other racers should move in realtime
+  [x] other racers should move in realtime
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
   [ ] track race timer
@@ -42,6 +42,8 @@
     [ ] words per minute display
     [ ] timer display
     [ ] stoplight countdown display when all players are ready
+    [ ] focus competition form when user joins race
+    [ ] disable competition form so user can't submit and reload page
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu

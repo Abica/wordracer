@@ -24,7 +24,10 @@ Template.race.rendered = ->
     participantsCursor = RaceParticipants.find()
     participantsCursor.observe
       added: (participant) ->
+        Utils.redrawParticipant participant
+
       changed: (participant) ->
+        Utils.redrawParticipant participant
 
   Meteor.subscribe 'sequences', raceKey
 
