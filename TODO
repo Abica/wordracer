@@ -44,6 +44,8 @@
     [ ] stoplight countdown display when all players are ready
     [ ] focus competition form when user joins race
     [ ] disable competition form so user can't submit and reload page
+    [ ] end game notifications
+    [ ] award ceremony
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu
@@ -51,7 +53,9 @@
   [ ] practice
   [ ] watch race
   [ ] replay race
+  [ ] car follows mouse and drives from button to button
 
 [ ] bugs
   [x] below a certain threshold car doesn't move correct distance
   [x] take width of car into account before it drives off of edge (probably stop using calc)
+  [ ] allowing player to reverse before the first letter

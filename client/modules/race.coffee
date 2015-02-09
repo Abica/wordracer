@@ -2,6 +2,9 @@ Template.race.helpers
   race: ->
     Utils.currentRace()
 
+  lastValid: ->
+    Session.get 'lastValid'
+
   inRace: ->
     Session.get('raceKey')
 
