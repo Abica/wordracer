@@ -13,6 +13,8 @@
   [ ] perhaps different terrain/maps instead of linear path?
   [ ] track race timer
   [ ] verify moves on backend
+  [ ] change race and racer game states appropriately
+  [ ] restrict certian actions in certain game states
 [ ] race modes
   [ ] alphabetical
   [ ] numeric
@@ -23,6 +25,7 @@
   [x] anonymous racers
   [ ] ability to change name
   [ ] ability to change race avatar (car by default)
+  [x] move progress and mistakes out of racers model and into race_participants
 [ ] ui
   [ ] styling
     [x] make sequence form full screen

@@ -10,9 +10,6 @@ Meteor.methods
         racerKey: racerKey
         name: "Racer #{Racers.find().count() + 1}"
         avatar: 'car'
-        mistakes: 0
-        progress: 0
-        state: 'pending'
 
      racer.racerKey || racerKey
 
@@ -30,6 +27,9 @@ Meteor.methods
     RaceParticipants.insert
       racerKey: joinRacePacket.racerKey
       raceKey: joinRacePacket.raceKey
+      mistakes: 0
+      progress: 0
+      state: 'pending'
 
   changeRacerStatus: (racerStatusPacket) ->
     check(racerStatusPacket, ValidChangeRacerStatusPacket)
