@@ -9,10 +9,7 @@ Template.race.helpers
     Utils.isParticipating()
 
   participants: ->
-    racerKeys = _.map RaceParticipants.find().fetch(), (r) ->
-      r.racerKey
-
-    Racers.find racerKey: {$in: racerKeys}
+    RaceParticipants.find()
 
 Template.race.rendered = ->
   raceKey = Router.current().state.get('raceKey')
@@ -50,6 +47,7 @@ Template.race.events
         extras: params
 
   'keydown :text': (e) ->
+    return if $(e.currentTarget).val().length < 1
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
 
@@ -58,13 +56,14 @@ Template.race_participant.helpers
     Utils.isRacer racerKey
 
 Template.race_participant.rendered = ->
-  @data.progress ||= 0
-  $img = @$('img')
+  participant = RaceParticipants.findOne(racerKey: @data.racerKey)
 
-  left = @data.progress
-  if left >= 100
-    left = "calc(#{@data.progress}% - #{$img.width()}px)"
+  progress = participant.progress || 0
+
+  $img = @$('img')
+  if progress >= 100
+    progress = "calc(#{progress}% - #{$img.width()}px)"
 
   $img.css
-    left: left
+    left: progress
 

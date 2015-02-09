@@ -36,16 +36,19 @@
   raceFinished: ->
     race = @currentRace()
     return true if race.state in ['finished', 'abandoned']
-    validCount = Session.get('lastValid').length
+    validCount = (Session.get('lastValid') || '').length
     requiredCount = Utils.currentRace().phrase.length
     validCount is requiredCount
 
   validateSequence: (charCode) ->
-    return if charCode in Keys.CONTROL
-    return if Utils.raceFinished()
-
     $message = $('#message')
     $goal = $('.goal')
+
+    if Utils.raceFinished()
+      $message.val(Session.get('lastValid'))
+      $message.attr('disabled', true)
+
+    return if charCode in Keys.CONTROL
 
     phrase = Utils.currentRace().phrase
     text = $message.val()
@@ -69,8 +72,8 @@
         "<span class='good'>#{match}</span>"
 
     else
-      lastValid = Session.get 'lastValid' || ""
-      replacementText = goalText.replace(new RegExp(lastValid), "")
+      lastValid = Session.get 'lastValid' || ''
+      replacementText = goalText.replace(new RegExp(lastValid), '')
       highlightedGoal =
         "<span class='good'>#{lastValid}</span>" +
         "<span class='bad'>#{replacementText}</span>"
