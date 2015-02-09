@@ -9,22 +9,19 @@ template(name="race")
 
     if isParticipating
       if isPending
-        button.ready-button I'm Ready!
-        button.leave-button Leave Race
+        .buttons
+          button.ready-button I'm Ready!
+          button.leave-button Leave Race
       else
         form#sequence-form
           input#message(type="text", name="message", placeholder="Type...", disabled=disabled, value=lastValid)
     else
-      button.join-race-button Join Race
+      .buttons
+        button.join-race-button Join Race
 
 template(name="race_participant")
   li.race-participant(class="car-#{carKey}")
-    if isCurrentRacer racerKey
-      span.name You
-    else if name
-      span.name= name
-    else
-      span.name The Mysterious Racer X
+    span.name= name
 
     aside.track
       if avatar

@@ -62,8 +62,18 @@ Template.race.events
 
 
 Template.race_participant.helpers
-  isCurrentRacer: (racerKey) ->
-    Utils.isRacer racerKey
+  name: ->
+    @racer ||= Utils.racer @racerKey
+    if Utils.isRacer @racerKey
+      "You"
+    else if @racer.name
+      @racer.name
+    else
+      "The Mysterious Racer X"
+
+  avatar: ->
+    @racer ||= Utils.racer @racerKey
+    @racer.avatar || 'car'
 
 Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne(racerKey: @data.racerKey)

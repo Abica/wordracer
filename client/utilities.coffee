@@ -28,6 +28,10 @@
   isRacer: (racerKey) ->
     Session.get('racerKey') is racerKey
 
+  racer: (racerKey) ->
+    Racers.findOne
+      racerKey: racerKey
+
   participantPointer: ->
     racerKey: Session.get('racerKey')
     raceKey: Session.get('raceKey')
