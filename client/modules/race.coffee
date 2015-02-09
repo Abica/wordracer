@@ -37,6 +37,7 @@ Template.race.events
   'click .leave-button': (e) ->
 
   'click .join-race-button': (e) ->
+    Session.set 'lastValid', ''
     Meteor.call 'joinRace', Utils.participantPointer()
 
   'keypress :text': (e) ->
@@ -48,10 +49,12 @@ Template.race.events
     validCount = Session.get('lastValid').length
     requiredCount = Utils.currentRace().phrase.length
 
+    participant.progress = validCount / requiredCount * 100
+
     RaceParticipants.update
       _id: participant._id
     , $set:
-        progress: validCount / requiredCount * 100
+        progress: participant.progress
         extras: Utils.participantPointer()
 
     Utils.redrawParticipant participant
