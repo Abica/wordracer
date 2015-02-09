@@ -18,7 +18,7 @@ template(name="race")
       button.join-race-button Join Race
 
 template(name="race_participant")
-  li.race-participant(class=carKey)
+  li.race-participant(class="car-#{carKey}")
     if isCurrentRacer racerKey
       span.name You
     else if name

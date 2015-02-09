@@ -28,6 +28,10 @@
   isRacer: (racerKey) ->
     Session.get('racerKey') is racerKey
 
+  participantPointer: ->
+    racerKey: Session.get('racerKey')
+    raceKey: Session.get('raceKey')
+
   currentParticipant: ->
     key = Session.get('racerKey')
     @participant ||= RaceParticipants.findOne
@@ -43,9 +47,9 @@
   redrawParticipant: (participant) ->
     progress = participant.progress || 0
 
-    $car = $(".#{participant.carKey}")
+    $car = $(".car-#{participant.carKey}")
     $img = $car.find('img')
-    $track = $car.find('track')
+    $track = $car.find('.track')
     maxLength = $track.width() - $img.width()
     progress = progress * maxLength / 100
 
@@ -91,4 +95,3 @@
         "<span class='bad'>#{replacementText}</span>"
 
     $goal.html highlightedGoal
-

@@ -32,14 +32,18 @@ Template.race.rendered = ->
     $('#message').focus()
 
 Template.race.events
+  'click .ready-button': (e) ->
+
+  'click .leave-button': (e) ->
+
+  'click .join-race-button': (e) ->
+    Meteor.call 'joinRace', Utils.participantPointer()
+
   'keypress :text': (e) ->
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
 
     participant = Utils.currentParticipant()
-    params =
-      racerKey: Session.get('racerKey')
-      raceKey: Session.get('raceKey')
 
     validCount = Session.get('lastValid').length
     requiredCount = Utils.currentRace().phrase.length
@@ -48,7 +52,7 @@ Template.race.events
       _id: participant._id
     , $set:
         progress: validCount / requiredCount * 100
-        extras: params
+        extras: Utils.participantPointer()
 
     Utils.redrawParticipant participant
 
