@@ -46,4 +46,4 @@
 
 [ ] bugs
   [x] below a certain threshold car doesn't move correct distance
-  [ ] take width of car into account before it drives off of edge (probably stop using calc)
+  [x] take width of car into account before it drives off of edge (probably stop using calc)
