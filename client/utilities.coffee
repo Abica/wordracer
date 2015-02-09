@@ -37,6 +37,21 @@
     @participant ||= RaceParticipants.findOne
       racerKey: key
 
+  stepCurrentRacer: ->
+    participant = @currentParticipant()
+    validCount = Session.get('lastValid').length
+    requiredCount = @currentRace().phrase.length
+
+    participant.progress = validCount / requiredCount * 100
+
+    RaceParticipants.update
+      _id: participant._id
+    , $set:
+        progress: participant.progress
+        extras: @participantPointer()
+
+    @redrawParticipant participant
+
   raceFinished: ->
     race = @currentRace()
     return true if race.state in ['finished', 'abandoned']
@@ -106,3 +121,4 @@
         "<span class='bad'>#{replacementText}</span>"
 
     $goal.html highlightedGoal
+    @stepCurrentRacer()

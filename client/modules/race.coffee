@@ -24,10 +24,12 @@ Template.race.rendered = ->
     participantsCursor = RaceParticipants.find()
     participantsCursor.observe
       added: (participant) ->
-        Utils.redrawParticipant participant
+        unless Utils.isRacer participant.racerKey
+          Utils.redrawParticipant participant
 
       changed: (participant) ->
-        Utils.redrawParticipant participant
+        unless Utils.isRacer participant.racerKey
+          Utils.redrawParticipant participant
 
   Meteor.subscribe 'sequences', raceKey
 
@@ -46,21 +48,6 @@ Template.race.events
   'keypress :text': (e) ->
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
-
-    participant = Utils.currentParticipant()
-
-    validCount = Session.get('lastValid').length
-    requiredCount = Utils.currentRace().phrase.length
-
-    participant.progress = validCount / requiredCount * 100
-
-    RaceParticipants.update
-      _id: participant._id
-    , $set:
-        progress: participant.progress
-        extras: Utils.participantPointer()
-
-    Utils.redrawParticipant participant
 
   'keydown :text': (e) ->
     return if $(e.currentTarget).val().length < 1
