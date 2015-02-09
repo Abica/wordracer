@@ -83,6 +83,17 @@
     goalText = $goal.text()
     highlightedGoal = null
     if isValid
+      $body = $('body')
+      if $body.is(':animated')
+        $body.stop()
+
+      value = parseInt($body.css('background-position')) + 20
+      $body.animate
+        backgroundPosition: value
+      ,
+        easing: 'linear'
+        duration: 500
+
       Session.set 'lastValid', text + character
       highlightedGoal = goalText.replace re, (match, $1, $2) ->
         "<span class='good'>#{match}</span>"
