@@ -29,6 +29,7 @@ Meteor.methods
       raceKey: joinRacePacket.raceKey
       mistakes: 0
       progress: 0
+      carKey: Meteor.uuid()
       state: 'pending'
 
   changeRacerState: (racerStatePacket) ->

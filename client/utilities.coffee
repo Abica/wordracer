@@ -40,6 +40,18 @@
     requiredCount = Utils.currentRace().phrase.length
     validCount is requiredCount
 
+  redrawParticipant: (participant) ->
+    progress = participant.progress || 0
+
+    $car = $(".#{participant.carKey}")
+    $img = $car.find('img')
+    $track = $car.find('track')
+    maxLength = $track.width() - $img.width()
+    progress = progress * maxLength / 100
+
+    $img.css
+      left: progress + "px"
+
   validateSequence: (charCode) ->
     $message = $('#message')
     $goal = $('.goal')

@@ -9,7 +9,6 @@ Template.race.helpers
     Utils.isParticipating()
 
   isPending: ->
-    console.log Utils.currentParticipant().state
     Utils.currentParticipant().state is 'pending'
 
   participants: ->
@@ -61,13 +60,4 @@ Template.race_participant.helpers
 
 Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne(racerKey: @data.racerKey)
-
-  progress = participant.progress || 0
-
-  $img = @$('img')
-  maxLength = @$('.track').width() - $img.width()
-  progress = progress * maxLength / 100
-
-  $img.css
-    left: progress + "px"
-
+  Utils.redrawParticipant participant

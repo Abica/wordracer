@@ -27,6 +27,7 @@
   [ ] ability to change name
   [ ] ability to change race avatar (car by default)
   [x] move progress and mistakes out of racers model and into race_participants
+  [ ] link racer with signed in account if there is one
 [ ] ui
   [ ] styling
     [x] make sequence form full screen
