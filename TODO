@@ -46,7 +46,7 @@
     [ ] disable competition form so user can't submit and reload page
     [ ] end game notifications
     [ ] award ceremony
-    [ ] lerp car movement
+    [x] lerp car movement
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu

@@ -78,8 +78,14 @@
     maxLength = $track.width() - $img.width()
     progress = progress * maxLength / 100
 
-    $img.css
-      left: progress + "px"
+    if $img.is(':animated')
+      $img.stop()
+
+    $img.animate
+      left: progress
+    ,
+      duration: 500
+      easing: 'linear'
 
   validateSequence: (charCode) ->
     $message = $('#message')
