@@ -12,6 +12,7 @@
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
   [ ] track race timer
+  [ ] verify moves on backend
 [ ] race modes
   [ ] alphabetical
   [ ] numeric
@@ -44,4 +45,5 @@
   [ ] replay race
 
 [ ] bugs
-  [ ] below a certain threshold car doesn't move correct distance
+  [x] below a certain threshold car doesn't move correct distance
+  [ ] take width of car into account before it drives off of edge (probably stop using calc)

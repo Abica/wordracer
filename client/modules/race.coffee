@@ -58,11 +58,12 @@ Template.race_participant.helpers
 Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne(racerKey: @data.racerKey)
 
-  progress = participant.progress || 0
+  rawProgress = participant.progress || 0
+  progress = (rawProgress || 0) + '%'
 
   $img = @$('img')
-  if progress >= 100
-    progress = "calc(#{progress}% - #{$img.width()}px)"
+  if rawProgress >= 100
+    progress = "calc(#{progress} - #{$img.width()}px)"
 
   $img.css
     left: progress
