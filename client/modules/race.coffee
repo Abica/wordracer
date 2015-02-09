@@ -43,11 +43,14 @@ Template.race.events
 
     validCount = Session.get('lastValid').length
     requiredCount = Utils.currentRace().phrase.length
+
     RaceParticipants.update
       _id: participant._id
     , $set:
         progress: validCount / requiredCount * 100
         extras: params
+
+    Utils.redrawParticipant participant
 
   'keydown :text': (e) ->
     return if $(e.currentTarget).val().length < 1
