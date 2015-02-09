@@ -104,6 +104,8 @@
     if charCode in Keys.DELETE
       character = text.substr(-2, 1)
       text = text.substr(0, text.length - 2)
+      if text.length is 0
+        character = ''
     else
       character = String.fromCharCode(charCode)
 
