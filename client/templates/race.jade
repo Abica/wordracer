@@ -15,7 +15,7 @@ template(name="race")
           button.leave-button Leave Race
       else
         form#sequence-form
-          input#message(type="text", name="message", placeholder="Type...", disabled=disabled, value=lastValid)
+          input#message(type="text", name="message", autocomplete="off", placeholder="Type...", disabled=disabled, value=lastValid)
     else
       .buttons
         button.join-race-button Join Race
