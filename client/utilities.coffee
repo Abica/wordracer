@@ -92,14 +92,10 @@
       easing: 'linear'
 
   validateSequence: (charCode) ->
+    return if charCode in Keys.CONTROL
+
     $message = $('#message')
     $goal = $('.goal')
-
-    if Utils.raceFinished()
-      $message.val(Session.get('lastValid'))
-      $message.attr('disabled', true)
-
-    return if charCode in Keys.CONTROL
 
     phrase = Utils.currentRace().phrase
     text = $message.val()
@@ -135,6 +131,8 @@
       highlightedGoal = goalText.replace re, (match, $1, $2) ->
         "<span class='good'>#{match}</span>"
 
+      @checkEndGame()
+
     else
       lastValid = Session.get 'lastValid' || ''
       replacementText = goalText.replace(new RegExp(lastValid), '')
@@ -144,6 +142,14 @@
 
     $goal.html highlightedGoal
     @stepCurrentRacer()
+
+  checkEndGame: ->
+    if Utils.raceFinished()
+      $message = $('#message')
+      $message.val(Session.get('lastValid'))
+      $message.attr('disabled', true)
+      $message.blur()
+      @showShade()
 
   showShade: ->
     $('.shade').show()
