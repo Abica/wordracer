@@ -43,6 +43,7 @@ Template.race.rendered = ->
 Template.race.events
   'click .ready-button': (e) ->
     Utils.readyUp()
+    Utils.startStoplight()
 
   'click .leave-button': (e) ->
     Utils.leaveRace()

@@ -144,3 +144,22 @@
 
     $goal.html highlightedGoal
     @stepCurrentRacer()
+
+  startStoplight: ->
+    $stoplight = $('#stoplight-section').show()
+    $stoplight.find('dim').removeClass('dim')
+    $ready = $stoplight.find('.ready')
+    $set = $stoplight.find('.set')
+    $go = $stoplight.find('.go')
+    $ready.fadeOut
+      complete: ->
+        $ready.show().addClass 'dim'
+        $set.fadeOut
+          complete: ->
+            $set.show().addClass 'dim'
+            $go.fadeOut
+              complete: ->
+                $go.show().addClass 'dim'
+                $stoplight.hide()
+                $('#message').focus()
+
