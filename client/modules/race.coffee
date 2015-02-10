@@ -67,7 +67,7 @@ Template.race_participant.helpers
     @racer ||= Utils.racer @racerKey
     if Utils.isRacer @racerKey
       "You"
-    else if @racer.name
+    else if @racer && @racer.name
       @racer.name
     else
       "The Mysterious Racer X"
