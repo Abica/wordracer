@@ -55,6 +55,9 @@
   [ ] watch race
   [ ] replay race
   [ ] car follows mouse and drives from button to button
+[ ] general
+  [ ] add a FTUE
+  [ ] add readme
 
 [ ] bugs
   [x] below a certain threshold car doesn't move correct distance

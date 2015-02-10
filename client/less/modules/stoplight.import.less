@@ -1,0 +1,36 @@
+#stoplight-section {
+  position: absolute;
+  z-index: 1000;
+  margin: 0 auto;
+  right: 0px;
+  left: 0px;
+  background: @gray;
+  border: 5px solid @borderColor;
+  width: 120px;
+  padding: 5px;
+  #stoplight {
+    width: 400px;
+    list-style-type: none;
+    li {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      border: 5px solid @borderColor;
+      margin: 0 auto;
+    }
+    .ready {
+      background: @red;
+    }
+    .set {
+      background: @yellow;
+    }
+    .go {
+      background: @green;
+    }
+    .dim {
+      display: box;
+      background: @gray;
+      box-shadow: inset 0px 0px 5px @gray;
+    }
+  }
+}
