@@ -104,7 +104,8 @@
     text = $message.val()
 
     character = null
-    if charCode in Keys.DELETE
+    isDelete = charCode in Keys.DELETE
+    if isDelete
       character = text.substr(-2, 1)
       text = text.substr(0, text.length - 2)
       if text.length is 0
@@ -123,7 +124,11 @@
       if $body.is(':animated')
         $body.stop()
 
-      value = parseInt($body.css('background-position')) + 20
+      velocity = 40
+      if isDelete
+        velocity *= -1
+
+      value = parseInt($body.css('background-position')) + velocity
       $body.animate
         backgroundPosition: value
       ,

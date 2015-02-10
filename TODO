@@ -47,6 +47,7 @@
     [ ] end game notifications
     [ ] award ceremony
     [x] lerp car movement
+    [ ] show message when a race has no participants yet
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu
