@@ -58,6 +58,7 @@
 [ ] general
   [ ] add a FTUE
   [ ] add readme
+  [ ] add a backdrop for popup elements and award screens
 
 [ ] bugs
   [x] below a certain threshold car doesn't move correct distance
