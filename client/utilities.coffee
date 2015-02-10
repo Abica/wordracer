@@ -42,10 +42,13 @@
     @participant ||= RaceParticipants.findOne
       racerKey: key
 
-  leaveRace: ->
+  resetRacer: ->
     Session.set 'lastValid', ''
-    Meteor.call 'leaveRace', @participantPointer()
     @participant = null
+
+  leaveRace: ->
+    Meteor.call 'leaveRace', @participantPointer()
+    @resetRacer()
 
   readyUp: ->
     Meteor.call 'racerReady', @participantPointer(), ->
@@ -150,6 +153,7 @@
       $message.attr('disabled', true)
       $message.blur()
       @showShade()
+      $('.race-participant, .new-race').addClass 'topLayer'
 
   showShade: ->
     $('.shade').show()
