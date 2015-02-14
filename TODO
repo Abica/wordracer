@@ -16,6 +16,7 @@
   [ ] track initial times
   [ ] store timecode per keystroke
   [ ] restore timer on reload
+  [ ] restore wpm on reload
   [ ] verify moves on backend
   [ ] change race and racer game states appropriately
   [ ] restrict certian actions in certain game states
