@@ -25,13 +25,14 @@ Meteor.methods
   joinRace: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
 
-    RaceParticipants.insert
+    RaceParticipants.upsert
       racerKey: participantPointer.racerKey
       raceKey: participantPointer.raceKey
-      mistakes: 0
-      progress: 0
-      carKey: Meteor.uuid()
-      state: 'pending'
+    , $set:
+        mistakes: 0
+        progress: 0
+        carKey: Meteor.uuid()
+        state: 'pending'
 
   leaveRace: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
