@@ -166,7 +166,7 @@
   hideShade: ->
     $('.shade').hide()
 
-  startStoplight: ->
+  startStoplight: (onGo = ->) ->
     @showShade()
     $stoplight = $('#stoplight-section').show()
     $stoplight.find('dim').removeClass('dim')
@@ -189,3 +189,4 @@
                 $stoplight.hide()
                 Utils.hideShade()
                 $('#message').focus()
+                onGo()

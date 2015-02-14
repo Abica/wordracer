@@ -12,8 +12,10 @@
   [x] other racers should move in realtime
   [ ] ability to replay races
   [ ] perhaps different terrain/maps instead of linear path?
-  [ ] track race timer
+  [x] track race timer
   [ ] track initial times
+  [ ] store timecode per keystroke
+  [ ] restore timer on reload
   [ ] verify moves on backend
   [ ] change race and racer game states appropriately
   [ ] restrict certian actions in certain game states
@@ -40,7 +42,7 @@
     [x] leave button when joined
     [x] display target phrase
     [ ] words per minute display
-    [ ] timer display
+    [x] timer display
     [x] stoplight countdown display when all players are ready
     [ ] focus competition form when user joins race
     [ ] disable competition form so user can't submit and reload page

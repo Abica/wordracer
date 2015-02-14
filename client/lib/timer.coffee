@@ -1,9 +1,10 @@
 @Timer = class
   isRunning: false
-  initialize: (delay) ->
-    @delay = +delay
-
   elapsedTime: 0
+
+  constructor: (delay, stepFunction) ->
+    @delay = +delay
+    @stepFunction = stepFunction || ->
 
   start: ->
     return if @isRunning
@@ -18,7 +19,8 @@
 
   step: (time) ->
     return unless @isRunning
-    console.log @elapsedTime / 1000
+
+    @stepFunction()
 
   stop: ->
     @isRunning = false

@@ -1,4 +1,10 @@
+timer = new Timer 0, ->
+  Session.set 'elapsedRaceTime', @elapsedTime / 1000
+
 Template.race.helpers
+  timer: ->
+    (+Session.get('elapsedRaceTime')).toFixed 2
+
   race: ->
     Utils.currentRace()
 
@@ -20,7 +26,8 @@ Template.race.helpers
 
 Template.race.rendered = ->
   raceKey = Router.current().state.get('raceKey')
-  Session.set('raceKey', raceKey)
+  Session.set 'raceKey', raceKey
+  Session.set 'elapsedRaceTime', 0
 
   Meteor.subscribe 'race', raceKey
   Meteor.subscribe 'racers', raceKey
@@ -43,7 +50,8 @@ Template.race.rendered = ->
 Template.race.events
   'click .ready-button': (e) ->
     Utils.readyUp()
-    Utils.startStoplight()
+    Utils.startStoplight =>
+      timer.start()
 
   'click .leave-button': (e) ->
     Utils.leaveRace()
@@ -56,10 +64,14 @@ Template.race.events
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
 
+    timer.stop() if Utils.raceFinished()
+
   'keydown :text': (e) ->
     return if $(e.currentTarget).val().length < 1
     charCode = e.which || e.keyCode
     Utils.validateSequence(charCode)
+
+    timer.stop() if Utils.raceFinished()
 
 
 Template.race_participant.helpers
