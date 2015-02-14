@@ -68,3 +68,4 @@
   [x] there are cases when the delete key will navigate the browser to the previous page..
       need to capture delete key even when user is not in an active game and prevent default
   [ ] restore end game modal state on page load
+  [ ] new users always appear to other racers as Mysterious Racer X until page reload
