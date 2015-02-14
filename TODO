@@ -63,7 +63,7 @@
     [x] highlight final elapsed time on kill screen
     [x] highlight final wpm
     [ ] differentiate between letters and words per minute depending on game mode
-    [ ] lock message box to bottom of the screen to give more space
+    [x] lock message box to bottom of the screen to give more space
 
 [ ] car customization options
   [ ] wheels turn

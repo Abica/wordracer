@@ -45,13 +45,16 @@
 }
 
 #sequence-form-panel {
-  margin-top: 25px;
-  padding-top: 15px;
+  position: fixed;
+
+  right: 15px;
+  left: 15px;
+  bottom: 15px;
   #message {
+    width: calc(~"100%" - 65px);
     border: 1px solid @blue;
-    width: calc(~"100%" - 25px);
-    padding: 10px;
-    font-size: 60px;
+    padding: 30px;
+    font-size: 72px;
     background: @black;
     color: @white;
   }
