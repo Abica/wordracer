@@ -69,8 +69,15 @@
 
     @redrawParticipant participant
 
-  currentWordsPerMinute: ->
-    validCount = Session.get('lastValid').length
+  currentWordsPerMinute: (wordsOnly = true) ->
+    sequence = Session.get('lastValid') || ""
+    validCount = null
+
+    if wordsOnly
+      validCount = sequence.split(/\s+/).length
+    else
+      validCount = sequence.length
+
     elapsed = +Session.get('elapsedRaceTime')
 
     return 0 if elapsed is 0
