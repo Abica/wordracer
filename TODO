@@ -50,7 +50,7 @@
     [x] ready button when joined
     [x] leave button when joined
     [x] display target phrase
-    [ ] words per minute display
+    [x] words per minute display
     [x] letters per minute display
     [x] timer display
     [x] stoplight countdown display when all players are ready
@@ -92,3 +92,4 @@
   [x] sentences with spaces do not highlight mistakes correctly
   [x] sometimes double spaces get inserted instead of one
   [x] reloaded races need locked if finished
+  [ ] join race -> leave race hides buttons and preserves race form

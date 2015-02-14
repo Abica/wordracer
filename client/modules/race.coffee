@@ -6,7 +6,7 @@ Template.race.helpers
     (+Session.get('elapsedRaceTime')).toFixed 2
 
   wpm: ->
-    Utils.currentWordsPerMinute().toFixed()
+    Utils.currentWordsPerMinute(true).toFixed()
 
   race: ->
     Utils.currentRace()
@@ -22,7 +22,7 @@ Template.race.helpers
 
   isPending: ->
     participant = Utils.currentParticipant(true)
-    not participant || participant.state is 'pending'
+    participant.state is 'pending'
 
   participants: ->
     RaceParticipants.find()
