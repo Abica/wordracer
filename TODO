@@ -45,6 +45,7 @@
     [x] make sequence form full screen
     [x] correct parts of the phrase you've typed should be green
     [x] mistakes should be red and blocking
+
   [ ] race ui
     [x] join button when viewing
     [x] ready button when joined
@@ -93,3 +94,6 @@
   [x] sometimes double spaces get inserted instead of one
   [x] reloaded races need locked if finished
   [x] join race -> leave race hides buttons and preserves race form
+  [x] buttons aren't showing for users who leave a race and want to rejoin
+  [ ] some punctuation seems to delete letters and reverse car
+  [x] hud disappears after joining and leaving repeatedly before readying up and racing

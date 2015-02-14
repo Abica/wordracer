@@ -1,31 +1,32 @@
 template(name="race")
   section#race-panel
     +stoplight
-    if isParticipating
-      if isRacing
-        section.hud.clearfix
-          aside.pull-left.time Elapsed Time: #{timer}
-          aside.pull-right.wpm Words Per Minute: #{wpm}
+    if isRacing
+      section.hud.clearfix
+        aside.pull-left.time Elapsed Time: #{timer}
+        aside.pull-right.wpm Words Per Minute: #{wpm}
 
-    ul#race-participants
-      each participants
-        +race_participant
+    if participants.count
+      ul#race-participants
+        each participants
+          +race_participant
+    else
+      .awaiting-racers Awaiting racers...
 
     aside.goal= race.phrase
 
-    if isParticipating
-      if isPending
-        .buttons
-          button.ready-button I'm Ready!
-          button.leave-button Leave Race
-    else
+    if isPending
+      .buttons
+        button.ready-button I'm Ready!
+        button.leave-button Leave Race
+
+    if canJoin
       .buttons
         button.join-race-button Join Race
 
-  if isParticipating
-    if raceFormShowing
-      section#sequence-form-panel
-        input#message(type="text", name="message", autocomplete="off", placeholder="Type...", disabled=disabled, value=lastValid)
+  if raceFormShowing
+    section#sequence-form-panel
+      input#message(type="text", name="message", autocomplete="off", placeholder="Type...", disabled=disabled, value=lastValid)
 
 template(name="race_participant")
   li.race-participant(class="car-#{carKey}")

@@ -24,8 +24,8 @@ Template.race.helpers
   inRace: ->
     Session.get('raceKey')
 
-  isParticipating: ->
-    Utils.isParticipating()
+  awaitingRacers: ->
+    Utils.currentRace().state == 'waiting_for_racers'
 
   isRacing: ->
     state = UI._globalHelpers.participantState()
@@ -38,6 +38,10 @@ Template.race.helpers
   raceFormShowing: ->
     state = UI._globalHelpers.participantState()
     state in ['ready', 'started']
+
+  canJoin: ->
+    participant = UI._globalHelpers.participant()
+    !participant || participant.state in ['exited', 'ejected']
 
   participants: ->
     RaceParticipants.find

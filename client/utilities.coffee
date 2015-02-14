@@ -22,7 +22,8 @@
     Session.set name, Session.get(name) || defaultValue
 
   isParticipating: ->
-    !!@currentParticipant()
+    participant = @currentParticipant()
+    participant && participant.state in ['pending', 'ready', 'started']
 
   currentRace: ->
     @race ||= Races.findOne()
