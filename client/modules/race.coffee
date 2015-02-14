@@ -28,6 +28,8 @@ Template.race.helpers
     RaceParticipants.find()
 
 Template.race.rendered = ->
+  Utils.checkEndGame()
+
   raceKey = Router.current().state.get('raceKey')
   Session.set 'raceKey', raceKey
   Session.set 'elapsedRaceTime', 0
