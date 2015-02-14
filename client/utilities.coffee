@@ -6,13 +6,15 @@
   escape: (str) ->
     str.replace /([.*+?^${}()|\[\]\/\\])/g, "\\$1"
 
+  unescape: (str) ->
+    str.replace /\\([.*+?^${}()|\[\]\/\\])/g, "\$1"
+
   fromComponents: (components...) ->
     str = [@escape(re) for re in components].join("")
     new RegExp(str)
 
   escapeComponents: (components...) ->
-    _.map components, (re) ->
-      @escape re
+    [@escape(re) for re in components...]
 
 
 @Utils = new class
@@ -128,6 +130,7 @@
     else
       character = String.fromCharCode(charCode)
 
+
     [text, character] = RegexUtils.escapeComponents(text, character)
     re = new RegExp("^(#{text})(#{character})")
     isValid = re.test(phrase)
@@ -150,7 +153,7 @@
         easing: 'linear'
         duration: 500
 
-      Session.set 'lastValid', text + character
+      Session.set 'lastValid', RegexUtils.unescape(text + character)
       highlightedGoal = goalText.replace re, (match, $1, $2) ->
         "<span class='good'>#{match}</span>"
 
@@ -164,6 +167,7 @@
         "<span class='bad'>#{replacementText}</span>"
 
     $goal.html highlightedGoal
+
     @stepCurrentRacer()
 
   checkEndGame: ->

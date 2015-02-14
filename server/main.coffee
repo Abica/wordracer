@@ -16,7 +16,8 @@ Meteor.methods
   createRace: (raceKey)  ->
     Races.insert
       raceKey: raceKey
-      phrase: "abcdefghijklmnopqrstuvwxyz"
+      #phrase: "abcdefghijklmnopqrstuvwxyz"
+      phrase: "How now brown cow?"
       state: "waiting_for_racers"
       time: 0
       maxTime: 3 * 60
