@@ -22,7 +22,7 @@ Template.race.helpers
 
   isPending: ->
     participant = Utils.currentParticipant(true)
-    participant.state is 'pending'
+    not participant || participant.state is 'pending'
 
   participants: ->
     RaceParticipants.find()
