@@ -89,4 +89,5 @@
   [ ] restore end game modal state on page load
   [ ] new users always appear to other racers as Mysterious Racer X until page reload
   [x] sentences with spaces do not highlight mistakes correctly
-  [ ] sometimes double spaces get inserted instead of one
+  [x] sometimes double spaces get inserted instead of one
+  [ ] reloaded races need locked if finished

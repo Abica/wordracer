@@ -72,7 +72,7 @@ Template.race.events
   'keydown :text': (e) ->
     return if $(e.currentTarget).val().length < 1
     charCode = e.which || e.keyCode
-    Utils.validateSequence(charCode)
+    Utils.validateSequence(charCode, true)
 
     timer.stop() if Utils.raceFinished()
 

@@ -111,7 +111,7 @@
       duration: 500
       easing: 'linear'
 
-  validateSequence: (charCode) ->
+  validateSequence: (charCode, deleteOnly = false) ->
     return if charCode in Keys.CONTROL
 
     $message = $('#message')
@@ -122,6 +122,9 @@
 
     character = null
     isDelete = charCode in Keys.DELETE
+
+    return if deleteOnly and not isDelete
+
     if isDelete
       character = text.substr(-2, 1)
       text = text.substr(0, text.length - 2)
