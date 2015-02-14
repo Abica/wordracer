@@ -69,6 +69,14 @@
 
     @redrawParticipant participant
 
+  currentWordsPerMinute: ->
+    validCount = Session.get('lastValid').length
+    elapsed = +Session.get('elapsedRaceTime')
+
+    return 0 if elapsed is 0
+
+    validCount / (elapsed / 60)
+
   raceFinished: ->
     race = @currentRace()
     return true if race.state in ['finished', 'abandoned']

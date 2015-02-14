@@ -5,6 +5,9 @@ Template.race.helpers
   timer: ->
     (+Session.get('elapsedRaceTime')).toFixed 2
 
+  wpm: ->
+    Utils.currentWordsPerMinute().toFixed()
+
   race: ->
     Utils.currentRace()
 

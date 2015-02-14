@@ -2,9 +2,11 @@
   [ ] players can vote to eject a player before match
   [ ] private races
   [x] public races
+
 [ ] joining races
   [ ] cap number of racers
   [ ] too many racers and new users become viewers
+
 [ ] races
   [x] car moves when user successfully types
   [ ] support for watching live races
@@ -15,23 +17,29 @@
   [x] track race timer
   [ ] track initial times
   [ ] store timecode per keystroke
+  [ ] record user mistakes
+  [ ] record actual keystroke
   [ ] restore timer on reload
   [ ] restore wpm on reload
   [ ] verify moves on backend
   [ ] change race and racer game states appropriately
   [ ] restrict certian actions in certain game states
+
 [ ] race modes
   [ ] alphabetical
   [ ] numeric
   [ ] math
   [ ] paragraphs
   [ ] levels/difficulty?
+
 [ ] racers
   [x] anonymous racers
   [ ] ability to change name
   [ ] ability to change race avatar (car by default)
   [x] move progress and mistakes out of racers model and into race_participants
+  [ ] display last key typed by racer above their head
   [ ] link racer with signed in account if there is one
+
 [ ] ui
   [ ] styling
     [x] make sequence form full screen
@@ -43,6 +51,7 @@
     [x] leave button when joined
     [x] display target phrase
     [ ] words per minute display
+    [ ] letters per minute display
     [x] timer display
     [x] stoplight countdown display when all players are ready
     [x] focus competition form when user joins race
@@ -53,14 +62,18 @@
     [ ] show message when a race has no participants yet
     [x] highlight final elapsed time on kill screen
     [ ] highlight final wpm
+    [ ] differentiate between letters and words per minute depending on game mode
+
 [ ] car customization options
   [ ] wheels turn
+
 [ ] landing menu
   [ ] race
   [ ] practice
   [ ] watch race
   [ ] replay race
   [ ] car follows mouse and drives from button to button
+
 [ ] general
   [ ] add a FTUE
   [ ] add readme
