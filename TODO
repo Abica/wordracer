@@ -61,7 +61,7 @@
     [x] lerp car movement
     [ ] show message when a race has no participants yet
     [x] highlight final elapsed time on kill screen
-    [ ] highlight final wpm
+    [x] highlight final wpm
     [ ] differentiate between letters and words per minute depending on game mode
 
 [ ] car customization options

@@ -166,7 +166,7 @@
       $message.attr('disabled', true)
       $message.blur()
       @showShade()
-      $('.race-participant, .new-race, .time').addClass 'topLayer relative'
+      $('.race-participant, .new-race, .time, .wpm').addClass 'topLayer relative'
 
   showShade: ->
     $('.shade').show()
