@@ -1,5 +1,12 @@
+
 timer = new Timer 0, ->
   Session.set 'elapsedRaceTime', @elapsedTime / 1000
+
+Template.registerHelper 'participant', ->
+  Utils.currentParticipant(true)
+
+Template.registerHelper 'participantState', ->
+  @participant().state
 
 Template.race.helpers
   timer: ->
@@ -20,12 +27,22 @@ Template.race.helpers
   isParticipating: ->
     Utils.isParticipating()
 
+  isRacing: ->
+    state = UI._globalHelpers.participantState()
+    state is 'started'
+
   isPending: ->
-    participant = Utils.currentParticipant(true)
-    participant.state is 'pending'
+    state = UI._globalHelpers.participantState()
+    state is 'pending'
+
+  raceFormShowing: ->
+    state = UI._globalHelpers.participantState()
+    state in ['ready', 'started']
 
   participants: ->
-    RaceParticipants.find()
+    RaceParticipants.find
+      state:
+        $in: ['pending', 'ready', 'started']
 
 Template.race.rendered = ->
   Utils.checkEndGame()
@@ -56,6 +73,7 @@ Template.race.events
   'click .ready-button': (e) ->
     Utils.readyUp()
     Utils.startStoplight =>
+      Meteor.call 'racerStarted', Utils.participantPointer()
       timer.start()
 
   'click .leave-button': (e) ->

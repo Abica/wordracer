@@ -33,12 +33,19 @@ Meteor.methods
       carKey: Meteor.uuid()
       state: 'pending'
 
-  # TODO(nick): for now this removes the participant but this should
-  #             really be setting the status to exited..
   leaveRace: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
 
-    RaceParticipants.remove(participantPointer)
+    RaceParticipants.update participantPointer,
+      $set:
+        state: 'exited'
+
+  racerStarted: (participantPointer) ->
+    check(participantPointer, ValidParticipantPointerPacket)
+
+    RaceParticipants.update participantPointer,
+      $set:
+        state: 'started'
 
   racerReady: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)

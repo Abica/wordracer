@@ -2,9 +2,10 @@ template(name="race")
   section#race-panel
     +stoplight
     if isParticipating
-      section.hud.clearfix
-        aside.pull-left.time Elapsed Time: #{timer}
-        aside.pull-right.wpm Words Per Minute: #{wpm}
+      if isRacing
+        section.hud.clearfix
+          aside.pull-left.time Elapsed Time: #{timer}
+          aside.pull-right.wpm Words Per Minute: #{wpm}
 
     ul#race-participants
       each participants
@@ -22,7 +23,7 @@ template(name="race")
         button.join-race-button Join Race
 
   if isParticipating
-    unless isPending
+    if raceFormShowing
       section#sequence-form-panel
         input#message(type="text", name="message", autocomplete="off", placeholder="Type...", disabled=disabled, value=lastValid)
 

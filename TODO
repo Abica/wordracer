@@ -22,8 +22,8 @@
   [ ] restore timer on reload
   [ ] restore wpm on reload
   [ ] verify moves on backend
-  [ ] change race and racer game states appropriately
-  [ ] restrict certian actions in certain game states
+  [x] change race and racer game states appropriately
+  [x] restrict certian actions in certain game states
 
 [ ] race modes
   [ ] alphabetical
@@ -92,4 +92,4 @@
   [x] sentences with spaces do not highlight mistakes correctly
   [x] sometimes double spaces get inserted instead of one
   [x] reloaded races need locked if finished
-  [ ] join race -> leave race hides buttons and preserves race form
+  [x] join race -> leave race hides buttons and preserves race form
