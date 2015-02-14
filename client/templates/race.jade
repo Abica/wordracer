@@ -1,9 +1,9 @@
 template(name="race")
   section#race-panel
     +stoplight
-    span.time Elapsed Time: #{timer}
-    br
-    span.wpm Letters Per Minute: #{wpm}
+    section.hud.clearfix
+      aside.pull-left.time Elapsed Time: #{timer}
+      aside.pull-right.wpm Letters Per Minute: #{wpm}
     ul#race-participants
       each participants
         +race_participant
