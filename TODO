@@ -60,6 +60,7 @@
   [ ] add a FTUE
   [ ] add readme
   [ ] add a backdrop for popup elements and award screens
+  [ ] cars can drive along arbitrarily shaped tracks
 
 [ ] bugs
   [x] below a certain threshold car doesn't move correct distance

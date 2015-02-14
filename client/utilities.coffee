@@ -189,4 +189,3 @@
                 $stoplight.hide()
                 Utils.hideShade()
                 $('#message').focus()
-
