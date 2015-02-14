@@ -44,12 +44,14 @@
     [ ] words per minute display
     [x] timer display
     [x] stoplight countdown display when all players are ready
-    [ ] focus competition form when user joins race
+    [x] focus competition form when user joins race
     [ ] disable competition form so user can't submit and reload page
     [ ] end game notifications
     [ ] award ceremony
     [x] lerp car movement
     [ ] show message when a race has no participants yet
+    [x] highlight final elapsed time on kill screen
+    [ ] highlight final wpm
 [ ] car customization options
   [ ] wheels turn
 [ ] landing menu
