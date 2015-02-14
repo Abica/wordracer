@@ -36,23 +36,20 @@ Meteor.methods
   leaveRace: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
 
-    RaceParticipants.update participantPointer,
-      $set:
-        state: 'exited'
+    participantPointer.state = 'exited'
+    Meteor.call 'changeRacerState', participantPointer
 
   racerStarted: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
 
-    RaceParticipants.update participantPointer,
-      $set:
-        state: 'started'
+    participantPointer.state = 'started'
+    Meteor.call 'changeRacerState', participantPointer
 
   racerReady: (participantPointer) ->
     check(participantPointer, ValidParticipantPointerPacket)
 
-    RaceParticipants.update participantPointer,
-      $set:
-        state: 'ready'
+    participantPointer.state = 'ready'
+    Meteor.call 'changeRacerState', participantPointer
 
   changeRacerState: (racerStatePacket) ->
     check(racerStatePacket, ValidChangeRacerStatePacket)
