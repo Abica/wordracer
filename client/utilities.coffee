@@ -71,6 +71,13 @@
         lastCharacter: character
         extras: @participantPointer()
 
+    racePacket = _.extend
+      keycode: character
+      timecode: +Session.get('elapsedRaceTime')
+    , @participantPointer()
+
+    Meteor.call 'racerStep', racePacket
+
     @redrawParticipant participant
 
   currentWordsPerMinute: (wordsOnly = true) ->

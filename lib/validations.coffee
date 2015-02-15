@@ -1,14 +1,14 @@
 @ValidRace = Match.Where (key) ->
   Races.findOne(raceKey: key)
 
-@ValidKeycode = Match.Where (keycode) ->
-  check(keycode, Integer)
+@ValidCharacter = Match.Where (character) ->
+  check(character, String)
 
-  keycode > 0
+  character.length is 1
 
 # TODO(nick): make more robust; possibly check code is within known race bounds
 @ValidTimecode = Match.Where (timecode) ->
-  check(timecode, Integer)
+  check(timecode, Number)
 
   timecode > 0
 
@@ -41,9 +41,9 @@
   true
 
 @ValidRacePacket = Match.Where (packet) ->
-  check(racePacket.raceKey, ValidRaceKey)
-  check(racePacket.keycode, ValidKeycode)
-  check(racePacket.timecode, ValidTimecode)
+  check(packet.raceKey, ValidRaceKey)
+  check(packet.keycode, ValidCharacter)
+  check(packet.timecode, ValidTimecode)
   check(packet.raceKey, ValidRace)
 
   Racers.findOne(racerKey: packet.racerKey)
