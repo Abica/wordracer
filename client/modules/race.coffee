@@ -1,4 +1,3 @@
-
 timer = new Timer 0, ->
   Session.set 'elapsedRaceTime', @elapsedTime / 1000
 
@@ -6,7 +5,8 @@ Template.registerHelper 'participant', ->
   Utils.currentParticipant(true)
 
 Template.registerHelper 'participantState', ->
-  @participant().state
+  participant = @participant()
+  participant && participant.state
 
 Template.race.helpers
   timer: ->
