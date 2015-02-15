@@ -10,7 +10,7 @@
 
 [ ] races
   [x] car moves when user successfully types
-  [ ] support for watching live races
+  [x] support for watching live races
   [x] multiplayer support
   [x] other racers should move in realtime
   [ ] ability to replay races
@@ -19,7 +19,7 @@
   [ ] track initial times
   [ ] store timecode per keystroke
   [ ] record user mistakes
-  [ ] record actual keystroke
+  [x] record actual keystroke
   [ ] restore timer on reload
   [ ] restore wpm on reload
   [ ] verify moves on backend
