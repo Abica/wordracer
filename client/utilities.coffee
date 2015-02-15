@@ -57,7 +57,7 @@
     Meteor.call 'racerReady', @participantPointer(), ->
       $('#message').focus()
 
-  stepCurrentRacer: ->
+  stepCurrentRacer: (character = null) ->
     participant = @currentParticipant()
     validCount = Session.get('lastValid').length
     requiredCount = @currentRace().phrase.length
@@ -68,6 +68,7 @@
       _id: participant._id
     , $set:
         progress: participant.progress
+        lastCharacter: character
         extras: @participantPointer()
 
     @redrawParticipant participant
@@ -172,7 +173,7 @@
 
     $goal.html highlightedGoal
 
-    @stepCurrentRacer()
+    @stepCurrentRacer RegexUtils.unescape(character)
 
   checkEndGame: ->
     if Utils.raceFinished()
