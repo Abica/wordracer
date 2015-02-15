@@ -115,6 +115,9 @@ Template.race_participant.helpers
     @racer ||= Utils.racer @racerKey
     @racer && @racer.avatar || 'car'
 
+  lastLetter: ->
+    'w'
+
 Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne(racerKey: @data.racerKey)
   Utils.redrawParticipant participant

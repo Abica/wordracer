@@ -9,11 +9,22 @@
   .race-participant {
     list-style-type: none;
     position: relative;
-    img {
+    .car {
       position: relative;
       z-index: 1;
       width: 100px;
+
+      .letter {
+        position: absolute;
+        top: 14px;
+        left: 34px;
+        z-index: 2;
+      }
+      img {
+        width: 100px;
+      }
     }
+
     &:before {
       z-index: 0;
       content: '';

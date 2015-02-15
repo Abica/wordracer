@@ -98,7 +98,7 @@
     progress = participant.progress || 0
 
     $car = $(".car-#{participant.carKey}")
-    $img = $car.find('img')
+    $img = $car.find('.car')
     $track = $car.find('.track')
     maxLength = $track.width() - $img.width()
     progress = progress * maxLength / 100

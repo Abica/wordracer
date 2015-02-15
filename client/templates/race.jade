@@ -33,8 +33,10 @@ template(name="race_participant")
     span.name= name
 
     aside.track
-      if avatar
-        img(src="/images/#{avatar}.png")
-      else
-        img(src="/images/car.png")
+      .car
+        b.letter= lastLetter
+        if avatar
+          img(src="/images/#{avatar}.png")
+        else
+          img(src="/images/car.png")
 
