@@ -24,6 +24,7 @@
   [ ] verify moves on backend
   [x] change race and racer game states appropriately
   [x] restrict certian actions in certain game states
+  [ ] sync initial ready/set/go countdown across racers
 
 [ ] race modes
   [ ] alphabetical
@@ -65,6 +66,11 @@
     [x] highlight final wpm
     [ ] differentiate between letters and words per minute depending on game mode
     [x] lock message box to bottom of the screen to give more space
+    [ ] draw last character a racer typed above their car
+
+  [ ] hud
+    [ ] add a stopwatch look to elapsed time
+    [ ] words per minute is a bit bland
 
 [ ] car customization options
   [ ] wheels turn

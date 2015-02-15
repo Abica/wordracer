@@ -113,7 +113,7 @@ Template.race_participant.helpers
 
   avatar: ->
     @racer ||= Utils.racer @racerKey
-    @racer.avatar || 'car'
+    @racer && @racer.avatar || 'car'
 
 Template.race_participant.rendered = ->
   participant = RaceParticipants.findOne(racerKey: @data.racerKey)
